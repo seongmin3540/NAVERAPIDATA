@@ -1,0 +1,88 @@
+/* 기본 스타일 설정 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    font-family: Arial, sans-serif;
+    /* background-color: #126402e5; */
+    background: linear-gradient(#126402,#12640298,#12640248);
+    color: rgba(248, 240, 240, 0.815);
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+main {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size : 15px;
+    color: #333;
+}
+
+h5 {
+    color: #608562;
+}
+
+/* 광고 배너 슬라이더 */
+.ad-slider {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.ad-slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.ad-slide {
+    min-width: 100%;
+    height: auto;
+}
+
+.ad-slide img {
+    width: 100%;
+    height: auto;
+}
+
+/*footer*/ 
+.footer-content{
+    margin: 0 auto;
+    font-size : 11px;
+    color :  #4d524d;
+}
+
+/* 인기 검색어 목록 스타일*/
+/* ul#popular-keywords {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul#popular-keywords li {
+    background: #0073e6;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 18px;
+} */
+
+/* 검색어 트렌드 그래프 스타일 */
+/* canvas {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+} */ 

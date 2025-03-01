@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 책 검색</title>
+    <style>
+        h1 {
+            color : #12921985
+        }
+        h5{
+            color : #608562
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .search-box {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        }
+        .search-box input {
+            width: 300px;  /* 입력 창 넓이 */
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 20px;  /* 둥근 모서리 */
+            outline: none;
+        }
+        .search-box button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #09ff0081; /* 파란색 */
+            color: rgb(15, 15, 15);
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .search-box button:hover {
+            background-color: #09ff004d; /* 어두운 파란색 */
+        }
+        .result {
+            display: flex; /* 가로 배치 */
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            text-align: left;
+        }
+        .result img {
+            width: 80px; /* 이미지 크기 */
+            height: auto;
+            margin-right: 15px; /* 이미지와 텍스트 사이 간격 */
+        }
+        .result .info {
+            flex: 1; /* 나머지 공간 차지 */
+        }
+        .result h3 {
+            margin: 0 0 5px;
+            font-size: 18px;
+        }
+        .result p {
+            margin: 0;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>네이버 책 검색</h1>
+        <form method="GET" action="/book" class ="search-box">
+            <input type="text" name="query" value="{{ query }}" placeholder="책 제목 혹은 작가 데이터를 입력하시오">
+            <button type="submit">🔍검색</button>
+        </form>
+        <h5>
+            상위 10개 검색 결과를 표시합니다.<br>
+            책 제목을 클릭하면 가격 비교 페이지로 이동합니다. 
+        </h5>
+        <hr>
+        {% if results %}
+            {% for item in results[:10] %}
+                <div class="result">
+                    <img src="{{ item.image }}" alt="책 이미지"> <!-- 책 이미지 -->
+                    <div class="info">
+                        <h3><a href="{{ item.link }}" target="_blank">{{ item.title | safe }}</a></h3>
+                        <p>{{ item.description[:100] }}...</p> <!-- 설명 100자 제한 -->
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>검색 결과가 없습니다.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

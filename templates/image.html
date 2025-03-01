@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 이미지 검색</title>
+    <style>
+        h1 {
+            color : #12921985
+        }
+        h5{
+            color : #608562
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .search-box input {
+            width: 300px;  /* 입력 창 넓이 */
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 20px;  /* 둥근 모서리 */
+            outline: none;
+        }
+        .search-box button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #09ff0081; /* 파란색 */
+            color: rgb(15, 15, 15);
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .search-box button:hover {
+            background-color: #09ff004d; /* 어두운 파란색 */
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .grid img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>네이버 이미지 검색</h1>
+        <form method="GET" action="/image" class ="search-box">
+            <input type="text" name="query" value="{{ query }}" placeholder ="검색어를 입력하시오">
+            <button type="submit">🔍검색</button>
+        </form>
+        <h5>
+            상위 30개 검색 결과를 표시합니다.<br>
+            이미지를 클릭하면 고화질 이미지 페이지로 이동합니다. 
+        </h5>
+        <hr>
+        {% if results %}
+            <div class="grid">
+                {% for item in results[:30] %}  <!-- 30개 이미지 표시 -->
+                    <div>
+                        <a href="{{ item.link }}" target="_blank">
+                            <img src="{{ item.thumbnail }}" alt="이미지">
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>검색 결과가 없습니다.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

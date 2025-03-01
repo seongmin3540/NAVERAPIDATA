@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naver Data</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+    <link rel = "stylesheet" href ="../static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Naver Data</h1>
+    </header>
+
+    <section>
+        <h5> 이 사이트에서는 다양한 네이버의 API를 활용한 기능을 구현합니다.<br>
+             <주요 기능><br>
+             1. 네이버 스토어 슬라이드 배너<br>
+             2. 검색어에 따른 상위 10개 책 정보<br>
+             3. 검색어에 따른 상위 30개 이미지 정보 <br>
+             4. 네이버 스토어 검색어 창으로 바로 넘어가는 링크<br>
+             <br>원하는 항목의 아이콘을 클릭하시오.<br>   
+        </h5>
+    </section>
+
+    <section>
+        <a href ="https://shopping.naver.com">
+            <div class="ad-slider">
+                <div class="ad-slider-wrapper">
+                    <div class="ad-slide">
+                        <img src="https://shop-phinf.pstatic.net/20250214_300/1739496635377ilrOP_PNG/3-1_EBA6ACEBB999ECA3BCEBB0A9_EB89B4EC87BCED9591_ECB59CE.png?type=a2304_jpg" alt="네이버 쇼핑 광고 1">
+                    </div>
+                    <div class="ad-slide">
+                        <img src="https://shop-phinf.pstatic.net/20250214_164/17394932170657qSVJ_PNG/EC87BCED9591ED9988_ED9484EBA19CEBAAA8EC8598_EAB095EC84.png?type=a2304_jpg" alt="네이버 쇼핑 광고 2">
+                    </div>
+                    <div class="ad-slide">
+                        <img src="https://shop-phinf.pstatic.net/20250211_251/1739260633411PiPjB_PNG/MO%2B2304x440_EB84B7ED948CEBA6ADEC8AA4_EC868CEC9EAC1.png?type=a2304_jpg" alt="네이버 쇼핑 광고 3">
+                    </div>
+                    <div class="ad-slide">
+                        <img src="https://shop-phinf.pstatic.net/20250213_186/1739406809522JWJsz_PNG/28EB8F84EC849C%2BEBB2A0EC8AA4ED8AB829_MO.png?type=a2304_jpg" alt="네이버 쇼핑 광고 4">
+                    </div>
+                    <div class="ad-slide">
+                        <img src="https://shop-phinf.pstatic.net/20250217_250/1739756317754hnnTF_PNG/ECB59CEC8381EB8BA8m_1152x220%2B28129.png?type=a2304_jpg" alt="네이버 쇼핑 광고 5">
+                    </div>
+                    <div class="ad-slide">
+                        <img src="https://shop-phinf.pstatic.net/20250217_45/1739770001429xIhjt_JPEG/EC8A88ED8DBCECA081EBA6BD%2B3EBB288_EB89B4EC87BCED9591_ED.jpg?type=a2304_jpg" alt="네이버 쇼핑 광고 6">
+                    </div>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <main>
+        <section>
+            <a href="{{ url_for('book') }}">
+                <img src="../static/icon/book.png" alt="top10 아이콘" width="64" height="64">
+            </a>
+            <h2>책</h2>
+        </section>
+
+        <section>
+            <a href="{{ url_for('image') }}">
+                <img src="../static/icon/image.png" alt="top10 아이콘" width="64" height="64">
+            </a>
+            <h2>이미지</h2>
+        </section>
+
+        <section>
+            <a href="https://shopping.naver.com/ns/home#SEARCH_LAYER">
+                <img src="../static/icon/shopping.png" alt="top10 아이콘" width="64" height="64">
+            </a>
+            <h2>쇼핑하러 가기</h2>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+          <p>&copy; 2025 Naver Data website. All rights reserved.</p>
+          <p>email : <a href="https://mail.naver.com/v2/new">po082000@naver.com</a></p>
+          <div class="social-media">
+            <a href="https://github.com/seongmin3540" target="_blank">Github</a>
+          </div>
+          <address>
+            <p>Knu Department of Computer Science Global sw Convergence Major </p>
+            <p>이름 : 이성민</p>
+            <p>학번 : 2020116498</p>
+            <p>연락처 : 010-6451-3540</p>
+          </address>
+        </div>
+      </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="{{ url_for('static', filename='script.js') }}"></script> -->
+    <script src="../static/script.js"></script>
+</body>
+</html>
